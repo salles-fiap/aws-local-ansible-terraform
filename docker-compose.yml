@@ -1,0 +1,12 @@
+version: '3.7'
+
+services:
+  localstack:
+    image: localstack/localstack
+    ports:
+      - "4566:4566"
+    environment:
+      - SERVICES=s3,dynamodb,sqs,lambda,secretsmanager,apigateway,ec2,elb  # Adicione outros serviços conforme necessário
+      - DEFAULT_REGION=us-east-1
+      - DOCKER_HOST=unix:///var/run/docker.sock
+  # Adicione outros serviços como PostgreSQL, MongoDB, etc. se precisar
